@@ -61,6 +61,18 @@ const processors = {
       });
     }            
   },
+  horizontalRules: {
+    regexp: /\n-{3,}/g,
+    process(string){
+      return _.replace(string, this.regexp, '\n<hr />')
+    }
+  },
+  para: {
+    regexp: /\n([^\n]+)\n/g,
+    process(string) {
+      return _.replace(string, this.regexp, '\n<p>$1</p>');
+    }
+  },
 }
 
 const regexpPipeline = processors => markdown => {
