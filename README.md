@@ -1,8 +1,16 @@
-2nd **navon** paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
+##hola
+
+###hola
+picoo
+
+2nd ***navon*** paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
 look like:
 
   * this one
   * that one
   * the other one
 
-grande **navon** xd
+[hotel](trivago.com)
+
+~~hehe~~ eooo
+`codigo`

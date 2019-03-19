@@ -3,91 +3,85 @@ const fs = require('fs');
 // External modules:
 const _ = require('lodash')
 
-const read = (path) => new Promise((resolve, reject) => {
+const readFile = (path) => new Promise((resolve, reject) => {
   fs.readFile(path, 'utf8', (error, data) => {
     if (error) reject(error)
     else resolve(data)
   });
 })
 
-const regexes = [
-  // BOLD
-  {
-    regex: /\*\*(\w*)\*\*/g,
-    render: (x) => {
-      return `<b>${x}</b>`;
-    }
-  },
-  // CODE
-  {
-    regex: /\`(\w*)\`/g,
-    render: (x) => {
-      return `<code>${x}</code>`;
-    }
-  },
-]
+const processors = {
+  header: {
+    regexp: /(#+)(.+)/g,
+    process(string) {
+      return _.replace(string, this.regexp, (match, g1, g2) => {
+        const length = g1.length;
 
-const renderR = (text) => {
-  let objects = regexes.reduce((xd, regex) => {
-    const match = regex.regex.exec(text);
-    regex.regex.lastIndex = 0;
-
-    if (match) {
-      xd.push({
-        text: match[0],
-        word: match[1],
-        index: match.index,
-        input: match.input
+        return `<h${length}>${g2}</h${length}>`;
       });
-    };
-
-    return xd
-  }, [])
-
-  objects = _.sortBy(objects, ['index']);
-
-  if (objects.length > 0) {
-
-
-    const first = objects[0];
-
-    return {
-      processedText: text.slice(0, first.index) + regexes[0].render(first.word),
-      notProcessedText: text.slice(first.index + first.text.length),
     }
-  } else {
-    // console.log(text);
-    return {
-      processedText: text,
-      notProcessedText: '',
+  },
+  links: {
+    regexp: /\[([^\[]+)\]\(([^\)]+)\)/g,
+    process(string) {
+      return _.replace(string, this.regexp, '<a href=\"$2\">$1</a>');
     }
+  },
+  bold: {
+    regexp: /(\*\*|__)([^\*\s]+)\1/g,
+    process(string) {
+      return _.replace(string, this.regexp, '<strong>$2</strong>');
+    },
+  },
+  emphasis: {
+    regexp: /(\*|_)([^\*\s]+)\1/g,
+    process(string) {
+      return _.replace(string, this.regexp, '<em>$2</em>');
+    },
+  },
+  del: {
+    regexp: /\~\~(.*?)\~\~/g,
+    process(string){
+      return _.replace(string, this.regexp, '<del>$1</del>');
+    }                          
+  },
+  code: {
+    regexp: /`(.*?)`/g,
+    process(string){
+      return _.replace(string, this.regexp, '<code>$1</code>');      
+    }            
+  },
+  blockquote: {
+    regexp: /\n(&gt;|\>)(.*)/g,
+    process(string){
+      return _.replace(string, this.regexp, (match, g1, g2) => {
+        const length = g1.length;
 
-  }
+        return `<h${length}>${g2}</h${length}>`;
+      });
+    }            
+  },
 }
 
+const regexpPipeline = processors => markdown => {
+  const processedMarkdown = processors.reduce((prevMarkdown, currentProcessor) => {
+    return currentProcessor.process(prevMarkdown)
+  }, markdown);
 
-const render = function* (text) {
-  while (text) {
-    const { processedText, notProcessedText } = renderR(text);
+  return processedMarkdown
+}
 
-    yield processedText
+const markdownToHTML = (markdown) => {
+  const pipeline = regexpPipeline(Object.values(processors))
 
-    text = notProcessedText;
-  }
+  return pipeline(markdown);
 }
 
 const main = async () => {
-  const text = await read('README.md');
-  const generator = render(text);
+  const markdown = await readFile('README.md');
+  const html = markdownToHTML(markdown);
 
-
-  let xd = ''
-
-  for (const processed of generator) {
-    xd += processed;
-  }
-
-  console.log(xd)
+  console.log(html)
 }
 
 main();
