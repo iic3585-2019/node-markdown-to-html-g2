@@ -10,6 +10,8 @@ look like:
   * that one
   * the other one
 
+---
+
 [hotel](trivago.com)
 
 ~~hehe~~ eooo
