@@ -31,23 +31,23 @@ const processors = {
   },
 
   bold: {
-    regexp: /(\*\*|__)(.*?)\1/g,
+    regexp: /(\*\*|__)([^\1\s])(.*?)\1/g,
     process(string) {
-      return _.replace(string, this.regexp, '<strong>$2</strong>');
+      return _.replace(string, this.regexp, '<strong>$2$3</strong>');
     },
   },
 
   emphasis: {
-    regexp: /(\*|_)(.*?)\1/g,
+    regexp: /(\*|_)([^\1\s])(.*?)\1/g,
     process(string) {
-      return _.replace(string, this.regexp, '<em>$2</em>');
+      return _.replace(string, this.regexp, '<em>$2$3</em>');
     },
   },
 
   delete: {
-    regexp: /(~~)(.*?)\1/g,
+    regexp: /(~~)([^\s])(.*?)\1/g,
     process(string) {
-      return _.replace(string, this.regexp, '<del>$2</del>');
+      return _.replace(string, this.regexp, '<del>$2$3</del>');
     },
   },
 
@@ -102,17 +102,17 @@ const processors = {
   },
 
   horizontal: {
-    regexp: /\n((-{3,})|(={3,}))/g,
+    regexp: /\n((-{3,})|(\*{3,}))/g,
     process(string) {
       return _.replace(string, this.regexp, '\n<hr />');
     },
   },
 
   paragraph: {
-    regexp: /\n([^\n]+)\n/g,
+    regexp: /\n+(?!<pre>)(?!<h)(?!<ul>)(?!<blockquote)(?!<hr)(?!\t)([^\n]+)/g,
     process(string) {
       return _.replace(string, this.regexp, '\n<p>$1</p>');
-    },
+    }
   },
 
   clearBlockquote: {
