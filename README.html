@@ -1,95 +1,17 @@
-An h1 header
-<p>============</p>
-<p>Paragraphs are separated by a blank line.</p>
-<p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, and <code>monospace</code>. Itemized lists</p>look like:
+<h1>Headline 1</h1>
+<p><h2>Headline 2</h2></p><h3>Headline 3</h3>
+<p><h4>Headline 4</h4></p><h5>Headline 5</h5>
 
-<p>  * this one</p>  * that one
-<p>  * the other one</p>
-<p>Note that --- not considering the asterisk --- the actual text</p>content starts at 4-columns in.
+<p><hr /></p>
+<p><h1>Bold, Emphasis and Delete</h1></p>Pellentesque <del><strong>lobortis dictum ligula</strong></del> quis venenatis. Pellentesque tincidunt sit amet nunc ac <del><strong><em>viverra</strong></em></del>. Suspendisse tincidunt, dui suscipit pretium facilisis, urna ex fermentum orci, at euismod tortor ex ut nisi. Morbi feugiat <em>semper sapien</em>, non accumsan urna auctor in. Proin porta tempor purus vitae molestie. Pellentesque viverra, odio sit amet <strong><em>tempus efficitur, nisi odio finibus nisi</strong></em>, et scelerisque ante sapien vitae felis. Suspendisse efficitur sit amet ligula ut <del><em>ornare. Cras sed orci tortor</em></del>. Suspendisse feugiat accumsan ligula, <del>sed aliquam ipsum</del> tincidunt id. Nam molestie, dolor id dictum tempor, <strong>enim justo commodo</strong> ligula, a aliquet sapien nisi et risus. Sed scelerisque nulla id odio convallis semper.
 
-<p><blockquote>Block quotes are</blockquote></p><blockquote>written like so.</blockquote>
-<p><blockquote></blockquote></p><blockquote>They can span multiple paragraphs,</blockquote>
-<p><blockquote>if you like.</blockquote></p>
-<p>Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all</p>in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-<p>Unicode is supported. ☺</p>
-
-
-<p>An h2 header</p><ul>
-<p>	<li>-----------</li></p></ul>
-
-<p>Here's a numbered list:</p>
-<p> 1. first item</p> 2. second item
-<p> 3. third item</p>
-<p>Note again how the actual text starts at 4 columns in (4 characters</p>from the left side). Here's a code sample:
-
-<p>    <h1>Let me re-iterate ...</h1></p>    for i in 1 .. 10 { do-something(i) }
-
-<p>As you probably guessed, indented 4 spaces. By the way, instead of</p>indenting the block, you can use delimited blocks, if you like:
-
-<p>~~~</p>define foobar() {
-<p>    print "Welcome to flavor country!";</p>}
-<p>~~~</p>
-<p>(which makes copying & pasting easier). You can optionally mark the</p>delimited block for Pandoc to syntax highlight it:
-
-<p>~~~python</p>import time
-<p><h1>Quick, count to ten!</h1></p>for i in range(10):
-<p>    <h1>(but not <em>too</em> quick)</h1></p>    time.sleep(0.5)
-<p>    print i</p>~~~
-
-
-
-<p><h3>An h3 header ###</h3></p>
-<p>Now a nested list:</p>
-<p> 1. First, get these ingredients:</p>
-<p>      * carrots</p>      * celery
-<p>      * lentils</p>
-<p> 2. Boil some water.</p>
-<p> 3. Dump everything in the pot and follow</p>    this algorithm:
-
-<p>        find wooden spoon</p>        uncover pot
-<p>        stir</p>        cover pot
-<p>        balance wooden spoon precariously on pot handle</p>        wait 10 minutes
-<p>        goto first step (or shut off burner when done)</p>
-<p>    Do not bump wooden spoon or it will fall.</p>
-<p>Notice again how text always lines up on 4-space indents (including</p>that last line which continues item 3 above).
-
-<p>Here's a link to <a href="http://foo.bar">a website</a>, to a <a href="local-doc.html">local</p>doc</a>, and to a <a href="<h1>an-h2-header">section heading in the current
-<p>doc</a>. Here's a footnote [^1].</h1></p>
-<p>[^1]: Footnote text goes here.</p>
-<p>Tables can look like this:</p>
-<p>size  material      color</p><ul>
-<p>	<li>---  ------------  ------------</li></p></ul>
-<p>9     leather       brown</p>10    hemp canvas   natural
-<p>11    glass         transparent</p>
-<p>Table: Shoes, their sizes, and what they're made of</p>
-<p>(The above is the caption for the table.) Pandoc also supports</p>multi-line tables:
-
-<p><ul></p>	<li>-------  -----------------------</li>
-<p></ul></p>keyword   text
-<p><ul></p>	<li>-------  -----------------------</li>
-<p></ul></p>red       Sunsets, apples, and
-<p>          other red or reddish</p>          things.
-
-<p>green     Leaves, grass, frogs</p>          and other things it's
-<p>          not easy being.</p><ul>
-<p>	<li>-------  -----------------------</li></p></ul>
-
-<p>A horizontal rule follows.</p>
-<p><ul></p>	<li>**</li>
-<p></ul></p>
-<p>Here's a definition list:</p>
-<p>apples</p>  : Good for making applesauce.
-<p>oranges</p>  : Citrus!
-<p>tomatoes</p>  : There's no "e" in tomatoe.
-
-<p>Again, text is indented 4 spaces. (Put a blank line between each</p>term/definition pair to spread things out more.)
-
-<p>Here's a "line block":</p>
-<p>| Line one</p>|   Line too
-<p>| Line tree</p>
-<p>and images can be specified like so:</p>
-<p>!<a href="example-image.jpg "An exemplary image"">example image</a></p>
-<p>Inline math equations go in like so: $\omega = d\phi / dt$. Display</p>math should get its own line and be put in in double-dollarsigns:
-
-<p>$$I = \int \rho R^{2} dV$$</p>
-<p>And note that you can backslash-escape any punctuation characters</p>which you wish to be displayed literally, ex.: \<code>foo\</code>, \<em>bar\</em>, etc.
+<p><hr /></p>
+<p><h1>Image and Link</h1></p>
+<p><img src="https://octodex.github.com/images/yaktocat.png" alt="Yaktocat" /></p>
+<p>Dolor, eget consequat dui viverra at <a href="www.google.com">here</a></p>
+<p><hr /></p>
+<p><h1>Unordered list and Ordered list</h1></p><ul><li>Harina</li><li>12 Huevos</li><li>1 Kg de Pan</li><li><strong>Limones</strong></li><li>5 Naranjas</li><li><del>Azucar</del> Sal</li></ul>
+<p><ol><li>Harina</li><li>12 Huevos</li><li>1 Kg de Pan</li><li><strong>Limones</strong></li><li>5 Naranjas</li><li><del>Azucar</del> Sal</li></ol></p>
+<p><hr /></p>
+<p><h1>Blockquote</h1></p>
+<p><blockquote>Sed aliquet massa arcu, eu gravida libero vestibulum sed. Praesent pharetra, ex eget pulvinar faucibus, orci quam interdum lacus, sed porta nisl est eget erat. Maecenas aliquet, lorem at euismod interdum, elit urna ornare neque, at egestas arcu ligula at leo. Vivamus in efficitur turpis. Morbi consectetur nisl a nibh mollis posuere. In non libero at nunc congue facilisis vitae eget tortor. Duis suscipit semper lectus sit amet convallis.</blockquote></p>
