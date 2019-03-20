@@ -15,7 +15,7 @@ Pellentesque ~~**lobortis dictum ligula**~~ quis venenatis. Pellentesque tincidu
 
 ![Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
-Dolor, eget consequat dui viverra at [here](www.google.com)
+Dolor, eget consequat dui viverra at [here](https://www.google.com)
 
 ---
 
