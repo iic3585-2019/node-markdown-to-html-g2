@@ -9,6 +9,12 @@
 # Bold, Emphasis and Delete
 Pellentesque ~~**lobortis dictum ligula**~~ quis venenatis. Pellentesque tincidunt sit amet nunc ac ~~***viverra***~~. Suspendisse tincidunt, dui suscipit pretium facilisis, urna ex fermentum orci, at euismod tortor ex ut nisi. Morbi feugiat *semper sapien*, non accumsan urna auctor in. Proin porta tempor purus vitae molestie. Pellentesque viverra, odio sit amet ***tempus efficitur, nisi odio finibus nisi***, et scelerisque ante sapien vitae felis. Suspendisse efficitur sit amet ligula ut ~~*ornare. Cras sed orci tortor*~~. Suspendisse feugiat accumsan ligula, ~~sed aliquam ipsum~~ tincidunt id. Nam molestie, dolor id dictum tempor, **enim justo commodo** ligula, a aliquet sapien nisi et risus. Sed scelerisque nulla id odio convallis semper.
 
+***
+
+# Code
+
+`console.log('La paz nunca fue una opción...')`
+
 ---
 
 # Image and Link

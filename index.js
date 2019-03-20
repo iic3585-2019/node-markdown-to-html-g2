@@ -31,23 +31,23 @@ const processors = {
   },
 
   bold: {
-    regexp: /(\*\*|__)([^\1\s])(.*?)\1/g,
+    regexp: /(\*\*|__)([^\s].*?[^\s])\1/g,
     process(string) {
-      return _.replace(string, this.regexp, '<strong>$2$3</strong>');
+      return _.replace(string, this.regexp, '<strong>$2</strong>');
     },
   },
 
   emphasis: {
-    regexp: /(\*|_)([^\1\s])(.*?)\1/g,
+    regexp: /(\*|_)([^\s].*?[^\s])\1/g,
     process(string) {
-      return _.replace(string, this.regexp, '<em>$2$3</em>');
+      return _.replace(string, this.regexp, '<em>$2</em>');
     },
   },
 
   delete: {
-    regexp: /(~~)([^\1\s])(.*?)\1/g,
+    regexp: /(~~)([^\s].*?[^\s])\1/g,
     process(string) {
-      return _.replace(string, this.regexp, '<del>$2$3</del>');
+      return _.replace(string, this.regexp, '<del>$2</del>');
     },
   },
 
