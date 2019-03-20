@@ -45,7 +45,7 @@ const processors = {
   },
 
   delete: {
-    regexp: /(~~)([^\s])(.*?)\1/g,
+    regexp: /(~~)([^\1\s])(.*?)\1/g,
     process(string) {
       return _.replace(string, this.regexp, '<del>$2$3</del>');
     },
@@ -112,7 +112,7 @@ const processors = {
     regexp: /\n+(?!<pre>)(?!<h)(?!<ul>)(?!<blockquote)(?!<hr)(?!\t)([^\n]+)/g,
     process(string) {
       return _.replace(string, this.regexp, '\n<p>$1</p>');
-    }
+    },
   },
 
   clearBlockquote: {
